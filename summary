@@ -1,0 +1,10 @@
+        ##variadic functions
+
+## va_start(args, count);  :  
+                                The second initializes the variadic argument-access state, allowing you  
+                                to start retrieving additional arguments.
+
+
+## va_arg(args, int); The second parameter tells the macro what type to retrieve
+
+## has type float, but because it is passed through ..., Default Argument Promotions convert it to          double. 
