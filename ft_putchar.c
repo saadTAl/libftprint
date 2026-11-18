@@ -1,6 +1,9 @@
 #include "ft.h"
 
-void ft_putchar (char c)
+int ft_putchar(char c)
 {
-    write( 1,&c,1) ;
+    int a;
+    a = 0;
+    a += write(1, &c, 1);
+    return (a);
 }

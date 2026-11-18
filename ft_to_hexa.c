@@ -1,21 +1,31 @@
 #include "ft.h"
 
-
-void ft_to_hexa(int n , char x)
+int ft_to_hexa(unsigned int n, char x)
 {
 
-    char *str ;
+    char *str;
+    int a;
+
+    a = 0;
     if (x == 'X')
     {
-        str = "0123456789ABCDEF" 
+        str = "0123456789ABCDEF";
 
+        if (n >= 16)
+        {
+            a += ft_to_hexa(n / 16, 'X');
+        }
+        a += write(1, &str[n % 16], 1);
     }
     else
     {
+        str = "0123456789abcdef";
 
+        if (n >= 16)
+        {
+            a += ft_to_hexa(n / 16, 'x');
+        }
+        a += write(1, &str[n % 16], 1);
     }
-}
-int main() 
-{
-
+    return (a);
 }

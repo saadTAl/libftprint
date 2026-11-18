@@ -1,12 +1,15 @@
 #ifndef FT_H
 #define FT_H
 
-#include<unistd.h>
+#include <unistd.h>
 #include <stdarg.h>
 
-void ft_putchar (char c) ;
-void ft_putstr (char *str) ; 
-void ft_putnbr (int n );
-void ft_to_hexa(int n , char x) ;
+int ft_printf(const char *str, ...);
+int ft_putchar(char c);
+int ft_putstr(char *str);
+int ft_putnbr(int n);
+int ft_to_hexa(unsigned n, char x);
+int ft_unsigned_decimal(unsigned int n);
+int ft_print_adrss(void *p);
 
 #endif

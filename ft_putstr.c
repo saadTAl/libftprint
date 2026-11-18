@@ -1,12 +1,21 @@
 #include "ft.h"
 
-void ft_putstr (char *str) 
+int ft_putstr(char *str)
 {
-    int i ; 
-     i = 0  ;
-    while(str[i])
+    int i;
+    int a;
+
+    a = 0;
+    i = 0;
+    if (str == NULL)
     {
-        write(1,&str[i],1) ;
-        i++ ;
+        write(1, "(null)", 6);
+        return (5);
     }
-} 
+    while (str[i])
+    {
+        a += write(1, &str[i], 1);
+        i++;
+    }
+    return (a);
+}
