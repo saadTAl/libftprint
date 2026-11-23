@@ -1,16 +1,21 @@
-#include "ft.h"
+#include "ft_printf.h"
+
 static int ft_hexa(unsigned long n)
 {
 
     char *str;
-    int a;
+    static int a;
 
-    a = 0;
+    a = 3;
     str = "0123456789abcdef";
 
     if (n >= 16)
-        a += ft_hexa(n / 16);
-    a += write(1, &str[n % 16], 1);
+    {
+        ft_hexa(n / 16);
+        a++;
+    }
+
+    write(1, &str[n % 16], 1);
     return (a);
 }
 

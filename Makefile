@@ -13,7 +13,7 @@ all : ${NAME}
 ${NAME} : ${OBJS}
 		ar rcs  ${NAME} ${OBJS}
 
-%.o :%.c ft.h
+%.o :%.c ft_printf.h
 		${CC} ${CFLAGS} -c $< -o $@
 clean :
 		rm -f ${OBJS} 
