@@ -7,8 +7,10 @@ int ft_unsigned_decimal(unsigned int n)
 
     a = ft_count_digit(n);
     if (n >= 10)
-        ft_unsigned_decimal(n / 10);
+        if (ft_unsigned_decimal(n / 10) == -1)
+            return (-1);
     c = (n % 10) + '0';
-    write(1, &c, 1);
+    if (write(1, &c, 1) == -1)
+        return (-1);
     return (a);
 }

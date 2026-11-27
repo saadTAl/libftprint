@@ -4,7 +4,7 @@ int ft_to_hexa(unsigned int n, char x)
 {
 
     char *str;
-    int a;
+    static int a;
 
     a = 0;
     if (x == 'X')
@@ -13,9 +13,13 @@ int ft_to_hexa(unsigned int n, char x)
 
         if (n >= 16)
         {
-            a += ft_to_hexa(n / 16, 'X');
+            if (ft_to_hexa(n / 16, 'X') == -1)
+                return (-1);
         }
-        a += write(1, &str[n % 16], 1);
+        if (write(1, &str[n % 16], 1) == -1)
+            return (-1);
+        else
+            a++;
     }
     else
     {
@@ -23,9 +27,13 @@ int ft_to_hexa(unsigned int n, char x)
 
         if (n >= 16)
         {
-            a += ft_to_hexa(n / 16, 'x');
+            if (ft_to_hexa(n / 16, 'x') == -1)
+                return (-1);
         }
-        a += write(1, &str[n % 16], 1);
+        if (write(1, &str[n % 16], 1) == -1)
+            return (-1);
+        else
+            a++;
     }
     return (a);
 }

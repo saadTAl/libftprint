@@ -11,11 +11,13 @@ static int ft_hexa(unsigned long n)
 
     if (n >= 16)
     {
-        ft_hexa(n / 16);
+        if (ft_hexa(n / 16) == -1 )
+            return (-1) ;
         a++;
     }
 
-    write(1, &str[n % 16], 1);
+    if (write(1, &str[n % 16], 1) == -1)
+        return (-1) ;
     return (a);
 }
 
@@ -23,10 +25,12 @@ int ft_print_adrss(void *p)
 {
     if (p == NULL)
     {
-        write(1, "(nil)", 5);
+        if (write(1, "(nil)", 5) == -1)
+            return (-1);
         return (5);
     }
-    write(1, "0x", 2);
+    if (write(1, "0x", 2) == -1) 
+        return (-1) ;
 
     return (ft_hexa((unsigned long)p));
 }
